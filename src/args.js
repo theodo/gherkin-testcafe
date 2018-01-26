@@ -22,4 +22,12 @@ module.exports = require('yargs')
 		default: './Specs/Definitions/**/*.js',
 		describe: 'Path(s) or Pattern(s) leading to your step definition files',
 		type: 'array'
-	});
+	})
+	.option('screenshotsOnFails', {
+		alias: 'S',
+		default: false
+  })
+	.option('screenshots', {
+		default: undefined
+	})
+;
