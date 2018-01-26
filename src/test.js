@@ -32,7 +32,10 @@ function resolveAndRunStepDefinition(testController, step) {
 function createTestFromScenario(scenario) {
 	test(`Scenario: ${scenario.name}`, t => Promise.all(scenario.steps.map(
 		step => resolveAndRunStepDefinition(t, step)
-	)));
+	))).after( async t => {
+		const messages = await t.getBrowserConsoleMessages();
+		console.log('console', messages)
+	});
 }
 
 //
